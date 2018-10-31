@@ -1,0 +1,11 @@
+<!-- Generated template for the SearchBarComponent component -->
+<div class="search-container" @myvisiable>
+  <form >
+  <ion-searchbar placeholder="Nhập từ tìm kiếm.." (keyup)="onSubmit()" [(ngModel)]="mSearchQuery.data" name="search"></ion-searchbar>
+  </form>
+  <ion-row class="options">
+    <ion-col *ngFor="let item of lists;let i = index " class="option" (click)="onClickOptions(i)" [class.active]="activeId==item.id">
+      {{item.name}}
+    </ion-col>
+  </ion-row>
+</div>

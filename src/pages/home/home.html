@@ -1,18 +1,26 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Danh sách thuốc</ion-title>
   </ion-navbar>
+  <ion-toolbar *ngIf="isShowSearchBar">
+    <search-bar (onSearch)="onSearch($event)"></search-bar>
+  </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+  <ion-list>
+  <button ion-item *ngFor="let item of mThuocLists;let i = index " (click)="goToDetail(item)">
+    <ion-note item-start>{{i+1}}</ion-note>
+    <ion-label item-content>{{item.name}}</ion-label>
+    <button ion-button item-end  clear>
+      <ion-icon name="ios-arrow-forward" color="gray"></ion-icon>
+    </button>
+  </button>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Đang tải dữ liệu..">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

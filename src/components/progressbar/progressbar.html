@@ -1,0 +1,9 @@
+<!-- Generated template for the ProgressbarComponent component -->
+<div>
+  <div class="progress-outer" (click)="click()">
+    <div class="progress-inner" [style.width]="progress + '%'" [style.background]="progress>50?'red':'blue'">
+      {{progress}}%
+    </div>
+  </div>
+  <div text-center [style.color]="progress>50?'red':'blue'">{{text}}</div>
+</div>

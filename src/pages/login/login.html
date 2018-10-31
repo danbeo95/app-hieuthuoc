@@ -1,0 +1,32 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Đăng Nhập</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-row class="container">
+      <ion-col no-padding col-auto> 
+      <ion-item>
+        <ion-label stacked>Tên Đăng Nhập</ion-label>
+        <ion-input placeholder="Tên đăng nhập.." [(ngModel)]="mUser.username"></ion-input>
+      </ion-item>
+      </ion-col>
+      <ion-col col-auto no-padding>
+      <ion-item>
+        <ion-label stacked>Mật Khẩu</ion-label>
+        <ion-input placeholder="Mật khẩu.." [(ngModel)]="mUser.password" type="password"></ion-input>
+      </ion-item>
+      </ion-col>
+      <button ion-button color="primary" (click)="doLogin()" round class="btn-login" [disabled]="mUser.username==''||mUser.password==''">Đăng Nhập</button>
+  </ion-row>
+</ion-content>

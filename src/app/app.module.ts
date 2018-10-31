@@ -8,7 +8,12 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { AppModuleProvider } from '../providers/app-module/app-module';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentsModule } from '../components/components.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrencyPipe,DecimalPipe } from '@angular/common';
+const monthShortNames = ["Th1","Th2","Th3","Th4","Th5","Th6","Th7","Th8","Th9","Th10","Th11","12"];
 @NgModule({
   declarations: [
     MyApp,
@@ -17,7 +22,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      monthShortNames: monthShortNames,
+
+    }),
+    HttpClientModule,
+    ComponentsModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,7 +39,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppModuleProvider,
+    CurrencyPipe,
+    DecimalPipe
   ]
 })
 export class AppModule {}

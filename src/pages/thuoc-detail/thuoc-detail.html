@@ -1,0 +1,65 @@
+<!--
+  Generated template for the ThuocDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{mThuoc.name}}</ion-title>
+    <ion-buttons right>
+      <button ion-button>
+        <ion-icon name="md-trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <form [formGroup]="mForm" *ngIf="mForm">
+    <ion-item>
+      <ion-label stacked color="danger">Tên Thuốc</ion-label>
+      <ion-input formControlName="name" placeholder="Tên thuốc..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Số Đăng Kí</ion-label>
+      <ion-input formControlName="registerNumber" placeholder="Số đăng kí..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Số Lô</ion-label>
+      <ion-input formControlName="lotNumber" placeholder="Số lô..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Hạn sử dụng</ion-label>
+      <ion-datetime formControlName="dateOff" displayFormat="DD/MMM/YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Số Lượng</ion-label>
+      <ion-input formControlName="number" placeholder="Số lương..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Đơn vị</ion-label>
+      <ion-input formControlName="unit" placeholder="Đơn vị..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Hãng sản xuất</ion-label>
+      <ion-input formControlName="manufacture" placeholder="Hãng sản xuất..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Giá nhập</ion-label>
+      <ion-input formControlName="priceIn" placeholder="Giá nhập" type="text" (keyup)="onKeyup('priceIn')"></ion-input>
+      <ion-note item-end>VNĐ</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked color="danger">Giá bán</ion-label>
+      <ion-input formControlName="priceOut" placeholder="Giá bán..."></ion-input>
+      <ion-note item-end>VNĐ</ion-note>
+    </ion-item>
+    <div text-center>
+    <button ion-button color="danger" class="btn-save" [disabled]="!mForm.dirty">
+      Chỉnh Sửa
+    </button>
+    </div>
+  </form>
+</ion-content>

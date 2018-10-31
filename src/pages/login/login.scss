@@ -1,0 +1,14 @@
+page-login {
+    .container{
+        justify-content: center;
+        height: 90vh;
+        flex-flow: column;
+    }
+    .btn-login{
+        width: 80%;
+        margin:20px auto;
+    }
+    ::placeholder{
+        font-size: 1rem;
+    }
+}
